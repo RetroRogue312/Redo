@@ -8,10 +8,16 @@ public class Unweighted
 {
     public List<Integer> BFS(int[][] graph, int start, int target)
     {
-
+        if (start == target)
+        {
+            ArrayList<Integer> path = new ArrayList<>();
+            path.add(start);
+            return path;
+        }
         Queue<Integer> q = new LinkedList<>();
         boolean[] visited = new boolean[graph.length];
         int[] pred = new int[graph.length];
+
 
         for (int i = 0; i < pred.length; i++)
         {
@@ -61,11 +67,11 @@ public class Unweighted
     {
         int[][] graph = {
                 {0,1,0,0},
-                {1,0,1,1},
-                {1,0,0,0},
-                {1,0,1,0}
+                {1,0,1,0},
+                {0,1,0,1},
+                {0,0,1,0}
         };
         Unweighted w = new Unweighted();
-        System.out.println(w.BFS(graph,0,3));
+        System.out.println(w.BFS(graph,0,0));
     }
 }
